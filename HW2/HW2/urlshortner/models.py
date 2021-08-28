@@ -1,6 +1,24 @@
 from django.db import models
 import math
 
+class Url(models.Model):
+    long_url = models.URLField()
+    short_url = models.CharField()
+
+
+    def __str__(self):
+        return f"{self.long_url} to {self.short_url}"
+
+
+    def save(self , *args, **kwargs):
+        if not self.short_url:
+            pass
+
+        super().save(*args , **kwargs)
+
+
+
+
 
 class URLGenerator:
     BASE = 62
