@@ -1,7 +1,8 @@
 
 from django.urls import path
-from .views import *
+from . import views
 
 urlpatterns = [
-    path('', url_shortner, name="urlshortner"),
+    path('', views.redirector_view, name="urlshortner"),
+    path('final/<str:sh_url>' , views.final , name="final"),
 ]
